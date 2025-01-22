@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2li407rw7yp3"]
+
+[ext_resource type="PackedScene" uid="uid://csthtig20qqoa" path="res://Cenas/Padeiro.tscn" id="2_2ypxh"]
+
+[node name="Node" type="Node"]
+
+[node name="Padeiro" parent="." instance=ExtResource("2_2ypxh")]
+position = Vector2(84, 91)
