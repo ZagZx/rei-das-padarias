@@ -15,26 +15,46 @@ public partial class walk : CharacterBody2D
 	{	
 		float fDelta = (float)delta;
 		Vector2 velocity = Velocity;
+		Dictionary<string, bool> direcoes = CheckPressed();
 
 		// velocity = Andar(fDelta, velocity);
+		// velocity = AndarDiagonal(velocity, fDelta);
 
-		velocity = AndarDiagonal(velocity, fDelta);
-
-		MoveAndCollide(velocity);
+		// MoveAndCollide(velocity);
 	}
 
-	public bool[] CheckPressed()
+	/// <summary>
+	/// Checa as teclas pressionadas e retorna um dicionário com as chaves WASD e valores booleanos
+	/// </summary>
+	public Dictionary<string, bool> CheckPressed()
 	{	
 		bool up = false;
 		bool down = false;
 		bool right = false;
 		bool left = false;
 
-		if (Input.IsKeyPressed(Key.Up) || Input.IsKeyPressed(Key.W))
-		{}
-
-		bool[] direcoes = new bool[4]{up, down, left, right};
+		if (Input.IsKeyPressed(Key.W))
+			up = true;
+		if (Input.IsKeyPressed(Key.A))
+			left = true;
+		if (Input.IsKeyPressed(Key.S))
+			down = true;
+		if (Input.IsKeyPressed(Key.D))
+			right = true;
 		
+		Dictionary<string,bool> direcoes = new Dictionary<string, bool>()
+		{
+			{"up",up},
+			{"down",down},
+			{"left",left},
+			{"right",right}
+		};
+
+		// foreach (string key in direcoes.Keys){
+		// 	Debug.WriteLine("Loop:");
+		// 	Debug.WriteLine($"{key}:{direcoes[key]}");
+		// }
+
 		return direcoes;
 	}
 	public Vector2 Andar(Vector2 velocity, float fDelta)
@@ -63,6 +83,12 @@ public partial class walk : CharacterBody2D
 		
 	}
 
+	public Vector2 AndarReto(Vector2 velocity, float fDelta, Dictionary<string,bool> direcoes)
+	{
+
+		
+		return velocity;
+	}
 	public Vector2 AndarDiagonal(Vector2 velocity, float fDelta)
 	{
 		float diagSpeed = CalcHipotenusa(speed, speed);

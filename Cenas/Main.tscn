@@ -5,4 +5,4 @@
 [node name="Node" type="Node"]
 
 [node name="Padeiro" parent="." instance=ExtResource("2_2ypxh")]
-position = Vector2(84, 91)
+position = Vector2(641, 367)
