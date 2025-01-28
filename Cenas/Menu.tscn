@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cu501fy346cfr"]
+[gd_scene load_steps=15 format=3 uid="uid://cu501fy346cfr"]
 
 [ext_resource type="Texture2D" uid="uid://dbk7n2mspr5o3" path="res://Sprites/Menu/placa_jogar_red.png" id="1_be5nt"]
+[ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_rwkss"]
 [ext_resource type="Texture2D" uid="uid://chxc4xldf33nx" path="res://Sprites/Menu/placa_jogar_blue.png" id="2_7gsdp"]
 [ext_resource type="Texture2D" uid="uid://bl5iuetcf48fo" path="res://Sprites/Menu/placa_controles_red.png" id="3_a1juy"]
 [ext_resource type="Texture2D" uid="uid://5706ver7m2qe" path="res://Sprites/Menu/placa_controles_blue.png" id="4_akteo"]
@@ -10,6 +11,10 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdx0l"]
 atlas = ExtResource("1_be5nt")
+region = Rect2(7, 29, 51, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py4hs"]
+atlas = ExtResource("2_7gsdp")
 region = Rect2(7, 29, 51, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2a34"]
@@ -45,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rwkss")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -65,10 +71,11 @@ offset_right = 593.0
 offset_bottom = 483.0
 scale = Vector2(4, 4)
 texture_normal = SubResource("AtlasTexture_rdx0l")
+texture_pressed = SubResource("AtlasTexture_py4hs")
 texture_hover = SubResource("AtlasTexture_i2a34")
 stretch_mode = 0
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Controles" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 516.0
 offset_top = 545.0
@@ -88,3 +95,5 @@ autoplay = "default"
 position = Vector2(396, 419)
 scale = Vector2(4, 4)
 texture = ExtResource("7_73fju")
+
+[connection signal="pressed" from="Jogar" to="." method="_on_jogar_pressed"]

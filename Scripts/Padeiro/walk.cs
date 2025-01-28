@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public partial class walk : CharacterBody2D
 {
@@ -13,9 +14,10 @@ public partial class walk : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{	
-		float fDelta = (float)delta;
-		Vector2 velocity = Velocity;
-		Dictionary<string, bool> direcoes = CheckPressed();
+		// float fDelta = (float)delta;
+		// Vector2 velocity = Velocity;
+		// Dictionary<string, bool> direcoes = CheckPressed();
+		CheckPressed();
 
 		// velocity = Andar(fDelta, velocity);
 		// velocity = AndarDiagonal(velocity, fDelta);
@@ -41,19 +43,35 @@ public partial class walk : CharacterBody2D
 			down = true;
 		if (Input.IsKeyPressed(Key.D))
 			right = true;
-		
+
 		Dictionary<string,bool> direcoes = new Dictionary<string, bool>()
 		{
 			{"up",up},
 			{"down",down},
 			{"left",left},
-			{"right",right}
+			{"right",right},
+			{"oneKey", false}
 		};
 
-		// foreach (string key in direcoes.Keys){
-		// 	Debug.WriteLine("Loop:");
-		// 	Debug.WriteLine($"{key}:{direcoes[key]}");
-		// }
+		int contador = 0;		
+		foreach (string key in direcoes.Keys)
+		{
+			if (key != "oneKey")
+			{
+				if (direcoes[key] == true){
+					contador += 1;}
+			}
+		}
+
+		if (contador == 1)
+		{
+			direcoes["oneKey"] = true;
+		}
+
+		foreach (string key in direcoes.Keys){ 
+			Debug.WriteLine("Loop:");
+			Debug.WriteLine($"{key}:{direcoes[key]}");
+		}
 
 		return direcoes;
 	}
@@ -85,7 +103,7 @@ public partial class walk : CharacterBody2D
 
 	public Vector2 AndarReto(Vector2 velocity, float fDelta, Dictionary<string,bool> direcoes)
 	{
-
+		
 		
 		return velocity;
 	}
@@ -100,7 +118,7 @@ public partial class walk : CharacterBody2D
 		}
 
 		return velocity;
-	}
+	} 
 	public float CalcHipotenusa(float cateto1, float cateto2)
 	{
 		// h = raiz quadrada de (c1² + c2²)
