@@ -3,6 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
+// Problemas a serem corrigidos: 
+// 1º Calculo da hipotenusa errado? o personagem está andando rápido demais quando segura duas direções
+// 2º Personagem prefere ir para o lado esquerdo ao pressionar A,D
+// Solução 2º: na função CheckPressed() fazer uma checagem para quando duas teclas de direções opostas
+// forem pressionadas, retornar ambas as teclas como false
+
 public partial class walk : CharacterBody2D
 {
 	float speed = 50f;
@@ -14,15 +20,15 @@ public partial class walk : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{	
-		// float fDelta = (float)delta;
-		// Vector2 velocity = Velocity;
-		// Dictionary<string, bool> direcoes = CheckPressed();
-		CheckPressed();
+		float fDelta = (float)delta;
+		Vector2 velocity = Velocity;
+		Dictionary<string, bool> direcoes = CheckPressed();
 
+		velocity = Andar(velocity, fDelta, direcoes);
 		// velocity = Andar(fDelta, velocity);
 		// velocity = AndarDiagonal(velocity, fDelta);
 
-		// MoveAndCollide(velocity);
+		MoveAndCollide(velocity);
 	}
 
 	/// <summary>
@@ -75,46 +81,59 @@ public partial class walk : CharacterBody2D
 
 		return direcoes;
 	}
-	public Vector2 Andar(Vector2 velocity, float fDelta)
+	public Vector2 Andar(Vector2 velocity, float fDelta, Dictionary<string, bool> direcoes)
 	{
 		
-		// if (Input.IsAnythingPressed())
-		// {
-		// 	if (Input.IsKeyPressed(Key.W) || Input.IsKeyPressed(Key.Up))
-		// 	{
-		// 		velocity.Y -= speed * fDelta;
-		// 	}
-		// 	if (Input.IsKeyPressed(Key.S) || Input.IsKeyPressed(Key.Down))
-		// 	{
-		// 		velocity.Y += speed * fDelta;
-		// 	}
-		// 	if (Input.IsKeyPressed(Key.D) || Input.IsKeyPressed(Key.Right))
-		// 	{
-		// 		velocity.X += speed * fDelta;
-		// 	}
-		// 	if (Input.IsKeyPressed(Key.A) || Input.IsKeyPressed(Key.Left))
-		// 	{
-		// 		velocity.X -= speed * fDelta;
-		// 	}
-		// }
+		if (direcoes["oneKey"]) 
+			velocity = AndarReto(velocity, fDelta, direcoes);
+		else
+			velocity = AndarDiagonal(velocity,fDelta, direcoes);
+
+		
 		return velocity;
 		
 	}
-
+	/// <summary>
+	/// Faz o personagem andar quando há apenas uma tecla de movimento pressionada, é importante que faça uma 
+	/// checagem das teclas pressionadas com a função CheckPressed() e só execute essa função caso oneKey seja
+	/// true no dicionário
+	/// </summary>
 	public Vector2 AndarReto(Vector2 velocity, float fDelta, Dictionary<string,bool> direcoes)
 	{
-		
+		if (direcoes["up"])
+			velocity.Y -= speed * fDelta;
+		else if (direcoes["down"])
+			velocity.Y += speed * fDelta;
+		else if (direcoes["right"])
+			velocity.X += speed * fDelta;
+		else if (direcoes["left"])
+			velocity.X -= speed * fDelta;
 		
 		return velocity;
 	}
-	public Vector2 AndarDiagonal(Vector2 velocity, float fDelta)
+	public Vector2 AndarDiagonal(Vector2 velocity, float fDelta, Dictionary<string, bool> direcoes)
 	{
 		float diagSpeed = CalcHipotenusa(speed, speed);
-
-		if (Input.IsKeyPressed(Key.W) && Input.IsKeyPressed(Key.A))
+		
+		if (direcoes["up"] && direcoes["left"])
 		{
 			velocity.X -= diagSpeed * fDelta;
 			velocity.Y -= diagSpeed * fDelta;
+		}
+		else if (direcoes["up"] && direcoes["right"])
+		{
+			velocity.X += diagSpeed * fDelta;
+			velocity.Y -= diagSpeed * fDelta;
+		}
+		else if (direcoes["down"] && direcoes["left"])
+		{
+			velocity.X -= diagSpeed * fDelta;
+			velocity.Y += diagSpeed * fDelta;
+		}
+		else if (direcoes["down"] && direcoes["right"])
+		{
+			velocity.X += diagSpeed * fDelta;
+			velocity.Y += diagSpeed * fDelta;
 		}
 
 		return velocity;
