@@ -7,9 +7,17 @@ using System.Diagnostics;
 public partial class walk : CharacterBody2D
 {
 	float speed = 100f;
+
+	Sprite2D sprite;
+	Texture2D padeiroFrente;
+	Texture2D padeiroCostas;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		sprite = GetNode<Sprite2D>("Sprite2D");
+		padeiroFrente = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_frente1.png");
+		padeiroCostas = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_costas.png");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,6 +59,14 @@ public partial class walk : CharacterBody2D
 		if (inputs.X != 0 && inputs.Y != 0)
 		{
 			inputs /= (float)Math.Sqrt(2);
+		}
+		if (inputs.Y > 0)
+		{
+			sprite.Texture = padeiroFrente;
+		}
+		else if (inputs.Y < 0)
+		{
+			sprite.Texture = padeiroCostas;
 		}
 
 		inputs *= speed * fDelta;
