@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Diagnostics;
 
 public partial class Menu : Control
@@ -18,6 +17,7 @@ public partial class Menu : Control
 
 	private void OnPressPlay()
 	{
+		GetTree().ChangeSceneToFile("res://Cenas/Main.tscn");
 		Debug.Print("apertei");
 	}
 }

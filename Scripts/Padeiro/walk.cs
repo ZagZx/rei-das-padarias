@@ -1,7 +1,6 @@
 using Godot;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+
 
 // não ta funcionando instanciar cena
 public partial class walk : CharacterBody2D
@@ -56,7 +55,7 @@ public partial class walk : CharacterBody2D
 		if (Input.IsActionJustPressed("ui_right"))
 			right = 1;
 
-		Debug.Print($"X = {left + right} Y = {up + down}");
+		// Debug.Print($"X = {left + right} Y = {up + down}");
 		return new Vector2(left + right, up + down);
 	}
 	/// <summary>
