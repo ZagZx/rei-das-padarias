@@ -2,17 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://dnghup4ro8jue" path="res://Sprites/Projeteis/fr_bread.png" id="1_0cp23"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ounl7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfo4a"]
 size = Vector2(22, 14)
 
 [node name="FrBread" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 position = Vector2(0, -6)
 texture = ExtResource("1_0cp23")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, 0)
-shape = SubResource("RectangleShape2D_ounl7")
+shape = SubResource("RectangleShape2D_kfo4a")

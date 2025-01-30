@@ -4,6 +4,16 @@
 
 [node name="Node" type="Node"]
 
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.111
+anchor_bottom = 1.111
+offset_right = -142.08
+offset_bottom = -79.92
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.652478, 0.587872, 0.430497, 1)
+
 [node name="Padeiro" parent="." instance=ExtResource("2_2ypxh")]
 position = Vector2(641, 367)
 scale = Vector2(3, 3)

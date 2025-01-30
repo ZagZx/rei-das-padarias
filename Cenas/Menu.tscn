@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://chxc4xldf33nx" path="res://Sprites/Menu/placa_jogar_blue.png" id="2_7gsdp"]
 [ext_resource type="Texture2D" uid="uid://bl5iuetcf48fo" path="res://Sprites/Menu/placa_controles_red.png" id="3_a1juy"]
 [ext_resource type="Texture2D" uid="uid://5706ver7m2qe" path="res://Sprites/Menu/placa_controles_blue.png" id="4_akteo"]
-[ext_resource type="Texture2D" uid="uid://drvlrp5f2k4y3" path="res://Sprites/Padeiro/Padeiro_frente1.png" id="5_wy1dt"]
-[ext_resource type="Texture2D" uid="uid://bvmv2xlhwn5jb" path="res://Sprites/Padeiro/Padeiro_frente2.png" id="6_w3b3n"]
+[ext_resource type="Texture2D" uid="uid://dh1knr0s1mc2y" path="res://Sprites/Padeiro/Padeiro_frente1.png" id="5_wy1dt"]
+[ext_resource type="Texture2D" uid="uid://ccfx08qgpic8u" path="res://Sprites/Padeiro/Padeiro_frente2.png" id="6_w3b3n"]
 [ext_resource type="Texture2D" uid="uid://dso1rvj0v8sv0" path="res://Sprites/Menu/capacete_menu.png" id="7_73fju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdx0l"]
@@ -86,14 +86,15 @@ texture_normal = SubResource("AtlasTexture_b2vdw")
 texture_hover = SubResource("AtlasTexture_8guhi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(906, 434)
+position = Vector2(403, 442)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_m1i6q")
 autoplay = "default"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(396, 419)
+position = Vector2(885, 439)
 scale = Vector2(4, 4)
 texture = ExtResource("7_73fju")
+flip_h = true
 
 [connection signal="pressed" from="Jogar" to="." method="_on_jogar_pressed"]
