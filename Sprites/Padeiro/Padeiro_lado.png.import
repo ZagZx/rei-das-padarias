@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpljm1utwbqff"
-path="res://.godot/imported/capacete_menu.png-51078e33ecd08e8f64d49242776ba158.ctex"
+uid="uid://dw3dooi2rb4hn"
+path="res://.godot/imported/Padeiro_lado.png-099dd7e9f675574141da5bdb62bf2064.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Menu/capacete_menu.png"
-dest_files=["res://.godot/imported/capacete_menu.png-51078e33ecd08e8f64d49242776ba158.ctex"]
+source_file="res://Sprites/Padeiro/Padeiro_lado.png"
+dest_files=["res://.godot/imported/Padeiro_lado.png-099dd7e9f675574141da5bdb62bf2064.ctex"]
 
 [params]
 

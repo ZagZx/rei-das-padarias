@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://cu501fy346cfr"]
 
 [ext_resource type="Texture2D" uid="uid://dbk7n2mspr5o3" path="res://Sprites/Menu/placa_jogar_red.png" id="1_be5nt"]
-[ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_rwkss"]
+[ext_resource type="Script" path="res://Scripts/Menu.cs" id="1_rwkss"]
 [ext_resource type="Texture2D" uid="uid://chxc4xldf33nx" path="res://Sprites/Menu/placa_jogar_blue.png" id="2_7gsdp"]
 [ext_resource type="Texture2D" uid="uid://bl5iuetcf48fo" path="res://Sprites/Menu/placa_controles_red.png" id="3_a1juy"]
 [ext_resource type="Texture2D" uid="uid://5706ver7m2qe" path="res://Sprites/Menu/placa_controles_blue.png" id="4_akteo"]
 [ext_resource type="Texture2D" uid="uid://dh1knr0s1mc2y" path="res://Sprites/Padeiro/Padeiro_frente1.png" id="5_wy1dt"]
 [ext_resource type="Texture2D" uid="uid://ccfx08qgpic8u" path="res://Sprites/Padeiro/Padeiro_frente2.png" id="6_w3b3n"]
-[ext_resource type="Texture2D" uid="uid://dso1rvj0v8sv0" path="res://Sprites/Menu/capacete_menu.png" id="7_73fju"]
+[ext_resource type="Texture2D" uid="uid://dpljm1utwbqff" path="res://Sprites/Menu/capacete_menu.png" id="7_73fju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdx0l"]
 atlas = ExtResource("1_be5nt")

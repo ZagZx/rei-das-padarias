@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://isucoss3iej8"]
+[gd_scene load_steps=4 format=3 uid="uid://isucoss3iej8"]
 
-[ext_resource type="Texture2D" uid="uid://dnghup4ro8jue" path="res://Sprites/Projeteis/fr_bread.png" id="1_0cp23"]
+[ext_resource type="Texture2D" uid="uid://bphi4wck1shh" path="res://Sprites/Projeteis/fr_bread.png" id="1_0cp23"]
+[ext_resource type="Script" path="res://Scripts/FrBread.cs" id="1_iuhuk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfo4a"]
-size = Vector2(22, 14)
+size = Vector2(18, 10)
 
 [node name="FrBread" type="Node2D"]
+script = ExtResource("1_iuhuk")
 
 [node name="Area2D" type="Area2D" parent="."]
 
