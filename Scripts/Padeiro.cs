@@ -40,7 +40,6 @@ public partial class Padeiro : CharacterBody2D
 		if (inputs.Y != 0|| inputs.X != 0)
 		{
 			Node paoInstance = paoScene.Instantiate();
-			paoInstance.
 			AddSibling(paoInstance);
 		}
 		
