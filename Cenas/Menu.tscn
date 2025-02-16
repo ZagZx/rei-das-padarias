@@ -1,12 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cu501fy346cfr"]
+[gd_scene load_steps=16 format=3 uid="uid://cu501fy346cfr"]
 
 [ext_resource type="Texture2D" uid="uid://dbk7n2mspr5o3" path="res://Sprites/Menu/placa_jogar_red.png" id="1_be5nt"]
 [ext_resource type="Script" path="res://Scripts/Menu.cs" id="1_rwkss"]
 [ext_resource type="Texture2D" uid="uid://chxc4xldf33nx" path="res://Sprites/Menu/placa_jogar_blue.png" id="2_7gsdp"]
 [ext_resource type="Texture2D" uid="uid://bl5iuetcf48fo" path="res://Sprites/Menu/placa_controles_red.png" id="3_a1juy"]
 [ext_resource type="Texture2D" uid="uid://5706ver7m2qe" path="res://Sprites/Menu/placa_controles_blue.png" id="4_akteo"]
-[ext_resource type="Texture2D" uid="uid://dh1knr0s1mc2y" path="res://Sprites/Padeiro/Padeiro_frente1.png" id="5_wy1dt"]
-[ext_resource type="Texture2D" uid="uid://ccfx08qgpic8u" path="res://Sprites/Padeiro/Padeiro_frente2.png" id="6_w3b3n"]
+[ext_resource type="Texture2D" uid="uid://vxa7tyiq5dq7" path="res://Sprites/Padeiro/padeiro_lado_2olho.png" id="6_0s2an"]
 [ext_resource type="Texture2D" uid="uid://dpljm1utwbqff" path="res://Sprites/Menu/capacete_menu.png" id="7_73fju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdx0l"]
@@ -29,18 +28,26 @@ region = Rect2(0, 29, 63, 17)
 atlas = ExtResource("4_akteo")
 region = Rect2(0, 29, 63, 17)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl4o7"]
+atlas = ExtResource("6_0s2an")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp4u6"]
+atlas = ExtResource("6_0s2an")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1i6q"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_wy1dt")
+"texture": SubResource("AtlasTexture_tl4o7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_w3b3n")
+"texture": SubResource("AtlasTexture_vp4u6")
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 2.0
 }]
 
 [node name="Menu" type="Control"]
@@ -93,6 +100,8 @@ position = Vector2(403, 442)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_m1i6q")
 autoplay = "default"
+frame_progress = 0.833888
+flip_h = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(885, 439)

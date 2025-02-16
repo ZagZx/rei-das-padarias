@@ -11,6 +11,9 @@ public partial class Padeiro : CharacterBody2D
 	Texture2D padeiroLado;
 	PackedScene paoScene;
 
+	// double lastBread = 0;
+	// double attackSpeed = 1.5f;
+
 	float fDelta;
 
 	public override void _Ready()
@@ -19,7 +22,6 @@ public partial class Padeiro : CharacterBody2D
 		padeiroFrente = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_frente1.png");
 		padeiroCostas = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_costas.png");
 		padeiroLado = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_lado.png");
-
 		paoScene = ResourceLoader.Load<PackedScene>("res://Cenas/Projeteis/fr_bread.tscn");
 	}
 	public override void _Process(double delta)
@@ -100,19 +102,16 @@ public partial class Padeiro : CharacterBody2D
 		{
 			sprite.Texture = padeiroLado;
 			sprite.FlipH = false;
-
 		}
 		else if (inputs.Y > 0)
 		{
 			sprite.Texture = padeiroFrente;
 			sprite.FlipH = false;
-
 		}
 		else if (inputs.Y < 0)
 		{
 			sprite.Texture = padeiroCostas;
 			sprite.FlipH = false;
-
 		}
 		inputs *= speed * fDelta;
 		return inputs;

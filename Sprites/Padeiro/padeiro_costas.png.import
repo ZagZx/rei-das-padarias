@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brkqwvp2or4cq"
-path="res://.godot/imported/Padeiro_costas.png-4a8ab127d395375ec53bcfb666858366.ctex"
+uid="uid://b2pxui6qwkt5k"
+path="res://.godot/imported/padeiro_costas.png-58468dea18ad908c4d80f4b2b843a92e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Padeiro/Padeiro_costas.png"
-dest_files=["res://.godot/imported/Padeiro_costas.png-4a8ab127d395375ec53bcfb666858366.ctex"]
+source_file="res://Sprites/Padeiro/padeiro_costas.png"
+dest_files=["res://.godot/imported/padeiro_costas.png-58468dea18ad908c4d80f4b2b843a92e.ctex"]
 
 [params]
 

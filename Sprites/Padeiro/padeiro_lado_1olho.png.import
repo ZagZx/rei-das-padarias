@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccfx08qgpic8u"
-path="res://.godot/imported/Padeiro_frente2.png-41383bb07134ec3e243cd5eb0bf10826.ctex"
+uid="uid://cnevuh71wdiqi"
+path="res://.godot/imported/padeiro_lado_1olho.png-0942433235e37609918afaaa21791eb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Padeiro/Padeiro_frente2.png"
-dest_files=["res://.godot/imported/Padeiro_frente2.png-41383bb07134ec3e243cd5eb0bf10826.ctex"]
+source_file="res://Sprites/Padeiro/padeiro_lado_1olho.png"
+dest_files=["res://.godot/imported/padeiro_lado_1olho.png-0942433235e37609918afaaa21791eb7.ctex"]
 
 [params]
 
