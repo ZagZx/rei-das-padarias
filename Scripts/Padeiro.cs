@@ -1,27 +1,22 @@
 using Godot;
 using System;
-
 public partial class Padeiro : CharacterBody2D
 {
 	float speed = 100f;
 
-	Sprite2D sprite;
-	Texture2D padeiroFrente;
-	Texture2D padeiroCostas;
-	Texture2D padeiroLado;
+
+	AnimatedSprite2D sprite;
 	PackedScene paoScene;
 
 	// double lastBread = 0;
 	// double attackSpeed = 1.5f;
 
 	float fDelta;
+	bool viradoLado = false;
 
 	public override void _Ready()
 	{
-		sprite = GetNode<Sprite2D>("Sprite2D");
-		padeiroFrente = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_frente1.png");
-		padeiroCostas = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_costas.png");
-		padeiroLado = GD.Load<Texture2D>("res://Sprites/Padeiro/Padeiro_lado.png");
+		sprite = GetNode<AnimatedSprite2D>("Sprite2D");
 		paoScene = ResourceLoader.Load<PackedScene>("res://Cenas/Projeteis/fr_bread.tscn");
 	}
 	public override void _Process(double delta)
@@ -86,33 +81,47 @@ public partial class Padeiro : CharacterBody2D
 	
 	public Vector2 Andar()
 	{
+		
 		Vector2 inputs = GetInputsWalk();
+
+		if (inputs.X != 0)
+		{
+			sprite.Play("walk_lado");
+			sprite.Scale = new(-inputs.X, 1);
+			viradoLado = true;
+		}
+		else if (inputs.Y != 0)
+		{
+			viradoLado = false;
+			sprite.Scale = new(1,1);
+			if (inputs.Y > 0)
+			{
+				sprite.Play("walk_frente");
+			}
+			else
+			{
+				sprite.Play("walk_costas");
+			}
+
+		}
 
 		if (inputs.X != 0 && inputs.Y != 0)
 		{
 			inputs /= (float)Math.Sqrt(2);
 		}
 		
-		if (inputs.X > 0)
+		else if (inputs.X == 0 && inputs.Y == 0)
 		{
-			sprite.Texture = padeiroLado;
-			sprite.FlipH = true;
+			if (viradoLado)
+			{
+				sprite.Play("idle_lado");
+			}
+			else
+			{
+				sprite.Play("idle_frente");
+			}
 		}
-		else if (inputs.X < 0)
-		{
-			sprite.Texture = padeiroLado;
-			sprite.FlipH = false;
-		}
-		else if (inputs.Y > 0)
-		{
-			sprite.Texture = padeiroFrente;
-			sprite.FlipH = false;
-		}
-		else if (inputs.Y < 0)
-		{
-			sprite.Texture = padeiroCostas;
-			sprite.FlipH = false;
-		}
+
 		inputs *= speed * fDelta;
 		return inputs;
 		

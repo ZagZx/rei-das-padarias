@@ -142,9 +142,9 @@ script = ExtResource("1_4av5r")
 position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_wegtg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/AnimationPlayer"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_6t6bh")
-animation = &"walk_lado"
-frame_progress = 0.614311
+animation = &"idle_lado"
+frame_progress = 0.143587
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
